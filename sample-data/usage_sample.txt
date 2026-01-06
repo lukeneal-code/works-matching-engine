@@ -1,0 +1,94 @@
+Recording Title|Recording Artist|Work Title|Songwriter
+Yesterday|The Beatles|Yesterday|Paul McCartney
+BOHEMIAN RHAPSODY|Queen|Bohemian Rhapsody|Freddie Mercury
+Stairway To Heaven|Led Zeppelin|Stairway to Heaven|Jimmy Page, Robert Plant
+Hotel California (Live)|Eagles|Hotel California|Don Henley, Glenn Frey
+Imagine|John Lennon|Imagine|John Lennon
+Hey Jude - Remastered|The Beatles|Hey Jude|Lennon-McCartney
+Let It Be|Beatles|Let It Be|Paul McCartney
+comfortably numb|Pink Floyd|Comfortably Numb|Roger Waters
+Sweet Child O' Mine|Guns N Roses|Sweet Child O Mine|Axl Rose
+Smells Like Teen Spirit|Nirvana|Smells Like Teen Spirit|Kurt Cobain
+Billie Jean - Single Version|Michael Jackson|Billie Jean|M. Jackson
+Like A Prayer|Madonna|Like a Prayer|Madonna, Patrick Leonard
+Purple Rain|Prince & The Revolution|Purple Rain|Prince
+I Will Always Love You|Whitney Houston|I Will Always Love You|Dolly Parton
+Thriller|Michael Jackson|Thriller|Rod Temperton
+Beat It|MJ|Beat It|Michael Jackson
+Dancing Queen|ABBA|Dancing Queen|Benny Andersson, Bjorn Ulvaeus
+Wannabe|Spice Girls|Wannabe|Spice Girls
+Shape Of You|Ed Sheeran|Shape of You|E. Sheeran
+Uptown Funk (feat. Bruno Mars)|Mark Ronson|Uptown Funk|Bruno Mars, Mark Ronson
+Respect|Aretha Franklin|Respect|Otis Redding
+Superstition|Stevie Wonder|Superstition|S. Wonder
+What's Going On|Marvin Gaye|Whats Going On|Marvin Gaye
+I Heard It Through The Grapevine|Marvin Gaye|I Heard It Through the Grapevine|N. Whitfield
+Ain't No Mountain High Enough|Diana Ross|Aint No Mountain High Enough|Ashford & Simpson
+Jolene|Dolly Parton|Jolene|D. Parton
+Ring Of Fire|Johnny Cash|Ring of Fire|June Carter
+Take Me Home, Country Roads|John Denver|Take Me Home Country Roads|John Denver
+Friends In Low Places|Garth Brooks|Friends in Low Places|Garth Brooks
+Crazy|Patsy Cline|Crazy|Willie Nelson
+Lose Yourself|Eminem|Lose Yourself|Eminem, Jeff Bass
+Juicy|Notorious B.I.G.|Juicy|Christopher Wallace
+California Love|2Pac ft. Dr. Dre|California Love|Tupac Shakur
+Empire State Of Mind|Jay-Z ft. Alicia Keys|Empire State of Mind|Shawn Carter
+Hotline Bling|Drake|Hotline Bling|Aubrey Graham
+Around The World|Daft Punk|Around the World|Thomas Bangalter
+Sandstorm|Darude|Sandstorm|Ville Virtanen
+Levels|Avicii|Levels|Tim Bergling
+Titanium (feat. Sia)|David Guetta|Titanium|David Guetta, Sia
+Wake Me Up|Avicii|Wake Me Up|Tim Bergling
+Take Five|Dave Brubeck Quartet|Take Five|Paul Desmond
+What A Wonderful World|Louis Armstrong|What a Wonderful World|Bob Thiele
+Fly Me To The Moon|Frank Sinatra|Fly Me to the Moon|Bart Howard
+Girl From Ipanema|Stan Getz & Astrud Gilberto|The Girl from Ipanema|Antonio Carlos Jobim
+Summertime|Ella Fitzgerald|Summertime|George Gershwin
+A Whiter Shade Of Pale|Procol Harum|A Whiter Shade of Pale|Gary Brooker
+All By Myself|Eric Carmen|All By Myself|Eric Carmen
+Rolling In The Deep|Adele|Rolling in the Deep|Adele Adkins
+Someone Like You (Live)|Adele|Someone Like You|Adele Adkins
+Hello|Adele|Hello|Adele, Greg Kurstin
+Sound Of Silence|Simon & Garfunkel|The Sound of Silence|Paul Simon
+Bridge Over Troubled Waters|Simon & Garfunkel|Bridge Over Troubled Water|Paul Simon
+Mrs Robinson|Simon and Garfunkel|Mrs. Robinson|P. Simon
+Scarborough Fair/Canticle|Simon & Garfunkel|Scarborough Fair|Simon, Garfunkel
+Born To Run|Bruce Springsteen|Born to Run|Bruce Springsteen
+Thunderroad|Bruce Springsteen & E Street Band|Thunder Road|B. Springsteen
+Dancing In The Dark|Bruce Springsteen|Dancing in the Dark|Springsteen
+Born In The U.S.A.|Bruce Springsteen|Born in the USA|Bruce Springsteen
+Glory Days|Springsteen|Glory Days|Bruce Springsteen
+Every Breath You Take|The Police|Every Breath You Take|Sting
+Roxanne (Live)|Police|Roxanne|Sting
+Message In A Bottle|The Police|Message in a Bottle|Sting
+With Or Without You|U2|With or Without You|Bono, The Edge
+One (Live)|U2|One|Bono
+Beautiful Day|U2|Beautiful Day|U2
+Under Pressure|Queen & David Bowie|Under Pressure|Freddie Mercury, David Bowie
+Somebody To Love|Queen|Somebody to Love|Freddie Mercury
+We Will Rock You|Queen|We Will Rock You|Brian May
+We Are The Champions|Queen|We Are the Champions|F. Mercury
+Dont Stop Me Now|Queen|Dont Stop Me Now|Freddie Mercury
+Come Together|Beatles|Come Together|Lennon-McCartney
+Here Comes The Sun|The Beatles|Here Comes the Sun|George Harrison
+Something|The Beatles|Something|G. Harrison
+A Day In The Life|Beatles|A Day in the Life|Lennon/McCartney
+Creep|Radiohead|Creep|Thom Yorke
+Karma Police|Radiohead|Karma Police|Radiohead
+Clocks|Coldplay|Clocks|Chris Martin
+Yellow|Coldplay|Yellow|C. Martin
+The Scientist|Cold Play|The Scientist|Coldplay
+Fix You|Coldplay|Fix You|Martin, Buckland
+Viva La Vida|Coldplay|Viva la Vida|Chris Martin
+Wonderwall|Oasis|Wonderwall|Noel Gallagher
+Don't Look Back In Anger|Oasis|Dont Look Back in Anger|N. Gallagher
+Live Forever|Oasis|Live Forever|Noel Gallagher
+Bittersweet Symphony|The Verve|Bitter Sweet Symphony|Richard Ashcroft
+There She Goes|The La's|There She Goes|Lee Mavers
+Common People|Pulp|Common People|Jarvis Cocker
+Song 2|Blur|Song 2|Damon Albarn
+Unknown Song Title|Unknown Artist|Mystery Song|Unknown Writer
+Fake Song That Doesnt Exist|Made Up Band|Nonexistent Work|Nobody
+Test Record Without Match|Test Artist|Test Work|Test Writer
+Another Fake Entry|Fictional Group|Imaginary Song|Invented Composer
+Last Test Record|Sample Artist|Sample Work|Sample Writer

@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: works-postgres
+    environment:
+      POSTGRES_USER: works_user
+      POSTGRES_PASSWORD: works_password
+      POSTGRES_DB: works_matching
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U works_user -d works_matching"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - works-network
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: works-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - works-network
+    deploy:
+      resources:
+        reservations:
+          memory: 4G
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: works-backend
+    environment:
+      DATABASE_URL: postgresql://works_user:works_password@postgres:5432/works_matching
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL: llama3.2:3b
+      EMBEDDING_MODEL: nomic-embed-text
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./sample-data:/app/sample-data
+    depends_on:
+      postgres:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+    networks:
+      - works-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: works-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - works-network
+
+volumes:
+  postgres_data:
+  ollama_data:
+
+networks:
+  works-network:
+    driver: bridge
