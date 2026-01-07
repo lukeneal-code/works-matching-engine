@@ -15,7 +15,7 @@ export default function BatchList() {
   });
 
   const handleDelete = async (batchId: string) => {
-    if (!window.confirm('Are you sure you want to delete this batch and all its data?')) {
+    if (!window.confirm('Delete this batch and all its data?')) {
       return;
     }
     try {
@@ -31,28 +31,28 @@ export default function BatchList() {
       case 'completed':
         return (
           <span className="badge badge-success">
-            <CheckCircle size={12} style={{ marginRight: '0.25rem' }} />
-            Completed
+            <CheckCircle size={10} style={{ marginRight: '4px' }} />
+            Done
           </span>
         );
       case 'processing':
         return (
           <span className="badge badge-info">
-            <Loader size={12} style={{ marginRight: '0.25rem' }} />
-            Processing
+            <Loader size={10} style={{ marginRight: '4px' }} />
+            Running
           </span>
         );
       case 'failed':
         return (
           <span className="badge badge-danger">
-            <XCircle size={12} style={{ marginRight: '0.25rem' }} />
+            <XCircle size={10} style={{ marginRight: '4px' }} />
             Failed
           </span>
         );
       default:
         return (
           <span className="badge badge-warning">
-            <Clock size={12} style={{ marginRight: '0.25rem' }} />
+            <Clock size={10} style={{ marginRight: '4px' }} />
             Pending
           </span>
         );
@@ -60,7 +60,14 @@ export default function BatchList() {
   };
 
   const formatDate = (dateStr: string) => {
-    return new Date(dateStr).toLocaleString();
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
   };
 
   if (isLoading) {
@@ -74,7 +81,7 @@ export default function BatchList() {
   return (
     <div className="card">
       <div className="card-header">
-        <h2 className="card-title">Processing Batches</h2>
+        <h2 className="card-title">Batches</h2>
         <div className="filter-group">
           <select
             className="filter-select"
@@ -84,7 +91,7 @@ export default function BatchList() {
               setPage(1);
             }}
           >
-            <option value="">All statuses</option>
+            <option value="">All</option>
             <option value="completed">Completed</option>
             <option value="processing">Processing</option>
             <option value="pending">Pending</option>
@@ -96,8 +103,8 @@ export default function BatchList() {
       {!data?.batches?.length ? (
         <div className="empty-state">
           <Folder className="empty-state-icon" />
-          <p>No batches found</p>
-          <Link to="/" className="btn btn-primary" style={{ marginTop: '1rem' }}>
+          <p>No batches yet</p>
+          <Link to="/" className="btn btn-primary" style={{ marginTop: '16px' }}>
             Upload a file
           </Link>
         </div>
@@ -107,14 +114,14 @@ export default function BatchList() {
             <table>
               <thead>
                 <tr>
-                  <th>Filename</th>
+                  <th>File</th>
                   <th>Status</th>
                   <th>Records</th>
-                  <th>Matched</th>
-                  <th>Flagged</th>
-                  <th>Unmatched</th>
+                  <th style={{ color: 'var(--notion-green)' }}>Matched</th>
+                  <th style={{ color: 'var(--notion-orange)' }}>Flagged</th>
+                  <th style={{ color: 'var(--notion-red)' }}>Unmatched</th>
                   <th>Created</th>
-                  <th>Actions</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -123,26 +130,27 @@ export default function BatchList() {
                     <td>
                       <Link
                         to={`/batches/${batch.id}`}
-                        style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 500 }}
+                        style={{ color: 'var(--notion-text)', fontWeight: '500' }}
                       >
                         {batch.filename}
                       </Link>
                     </td>
                     <td>{getStatusBadge(batch.status)}</td>
                     <td>{batch.total_records}</td>
-                    <td style={{ color: 'var(--success)' }}>{batch.matched_records}</td>
-                    <td style={{ color: 'var(--warning)' }}>{batch.flagged_records}</td>
-                    <td style={{ color: 'var(--danger)' }}>{batch.unmatched_records}</td>
-                    <td style={{ fontSize: '0.875rem', color: 'var(--gray-500)' }}>
+                    <td style={{ color: 'var(--notion-green)', fontWeight: '500' }}>{batch.matched_records}</td>
+                    <td style={{ color: 'var(--notion-orange)', fontWeight: '500' }}>{batch.flagged_records}</td>
+                    <td style={{ color: 'var(--notion-red)', fontWeight: '500' }}>{batch.unmatched_records}</td>
+                    <td style={{ fontSize: '13px', color: 'var(--notion-text-secondary)' }}>
                       {formatDate(batch.created_at)}
                     </td>
                     <td>
                       <button
                         className="btn btn-secondary"
                         onClick={() => handleDelete(batch.id)}
-                        title="Delete batch"
+                        title="Delete"
+                        style={{ padding: '4px 8px' }}
                       >
-                        <Trash2 size={16} />
+                        <Trash2 size={14} />
                       </button>
                     </td>
                   </tr>

@@ -86,9 +86,9 @@ export default function Upload() {
   return (
     <div>
       <div className="card">
-        <h2 className="card-title">Upload Usage File</h2>
-        <p style={{ color: 'var(--gray-600)', marginBottom: '1.5rem' }}>
-          Upload a TXT or CSV file with pipe-delimited usage data to match against the works database.
+        <h2 className="card-title" style={{ marginBottom: '8px' }}>Upload Usage File</h2>
+        <p style={{ color: 'var(--notion-text-secondary)', marginBottom: '24px', fontSize: '14px' }}>
+          Upload a pipe-delimited file to match against the works database.
         </p>
 
         {!isUploading && (
@@ -103,7 +103,7 @@ export default function Upload() {
                 ? 'Drop the file here...'
                 : 'Drag & drop a file here, or click to select'}
             </p>
-            <p className="dropzone-hint">Supports TXT and CSV files (pipe-delimited)</p>
+            <p className="dropzone-hint">Supports .txt and .csv files</p>
           </div>
         )}
 
@@ -114,24 +114,22 @@ export default function Upload() {
         )}
 
         {file && validation && !isUploading && (
-          <div style={{ marginTop: '1.5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-              <FileText size={24} style={{ color: 'var(--primary)' }} />
+          <div style={{ marginTop: '24px' }}>
+            <div className="file-info">
+              <FileText size={20} className="file-info-icon" />
               <div>
-                <div style={{ fontWeight: 500 }}>{file.name}</div>
-                <div style={{ fontSize: '0.875rem', color: 'var(--gray-500)' }}>
-                  {validation.total_records} records found
-                </div>
+                <div className="file-info-name">{file.name}</div>
+                <div className="file-info-meta">{validation.total_records} records found</div>
               </div>
             </div>
 
             {validation.sample_records && validation.sample_records.length > 0 && (
-              <div style={{ marginBottom: '1.5rem' }}>
-                <div style={{ fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>
-                  Sample records:
+              <div style={{ marginTop: '24px' }}>
+                <div style={{ fontSize: '12px', fontWeight: '500', marginBottom: '8px', color: 'var(--notion-text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Preview
                 </div>
                 <div className="table-container">
-                  <table style={{ fontSize: '0.875rem' }}>
+                  <table>
                     <thead>
                       <tr>
                         <th>#</th>
@@ -144,7 +142,7 @@ export default function Upload() {
                     <tbody>
                       {validation.sample_records.map((record: any, idx: number) => (
                         <tr key={idx}>
-                          <td>{record.row_number}</td>
+                          <td style={{ color: 'var(--notion-text-secondary)' }}>{record.row_number}</td>
                           <td>{record.work_title || '-'}</td>
                           <td>{record.songwriter || '-'}</td>
                           <td>{record.recording_title || '-'}</td>
@@ -157,24 +155,26 @@ export default function Upload() {
               </div>
             )}
 
-            <button className="btn btn-primary" onClick={handleUpload}>
-              <UploadIcon size={18} />
-              Start Processing
-            </button>
+            <div style={{ marginTop: '24px' }}>
+              <button className="btn btn-primary" onClick={handleUpload}>
+                <UploadIcon size={16} />
+                Start Processing
+              </button>
+            </div>
           </div>
         )}
 
         {isUploading && progress && (
-          <div style={{ marginTop: '1.5rem' }}>
+          <div style={{ marginTop: '24px' }}>
             <div className="progress-container">
-              <div style={{ marginBottom: '0.5rem', fontWeight: 500 }}>
+              <div style={{ marginBottom: '12px', fontWeight: '500', fontSize: '14px' }}>
                 {progress.stage === 'complete' ? (
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--success)' }}>
-                    <CheckCircle size={20} /> Processing Complete
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--notion-green)' }}>
+                    <CheckCircle size={16} /> Processing Complete
                   </span>
                 ) : (
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Loader size={20} className="spinner" style={{ animation: 'spin 1s linear infinite' }} />
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--notion-text-secondary)' }}>
+                    <Loader size={16} style={{ animation: 'spin 0.6s linear infinite' }} />
                     {progress.message || 'Processing...'}
                   </span>
                 )}
@@ -190,7 +190,7 @@ export default function Upload() {
                   <span>
                     {progress.processed || 0} / {progress.total_records} records
                   </span>
-                  <div style={{ display: 'flex', gap: '1rem' }}>
+                  <div style={{ display: 'flex', gap: '16px' }}>
                     {progress.matched !== undefined && (
                       <span className="progress-stat">
                         <span className="stat-dot matched" />
@@ -218,33 +218,32 @@ export default function Upload() {
 
         {error && (
           <div style={{
-            marginTop: '1rem',
-            padding: '1rem',
-            background: '#fee2e2',
-            borderRadius: '0.5rem',
+            marginTop: '16px',
+            padding: '12px',
+            background: 'var(--notion-red-bg)',
+            borderRadius: '4px',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.5rem',
-            color: '#991b1b'
+            gap: '8px',
+            color: 'var(--notion-red)',
+            fontSize: '14px'
           }}>
-            <AlertCircle size={20} />
+            <AlertCircle size={16} />
             {error}
           </div>
         )}
       </div>
 
-      <div className="card">
-        <h3 className="card-title">Expected File Format</h3>
-        <p style={{ color: 'var(--gray-600)', marginBottom: '1rem' }}>
-          Files should be pipe-delimited (|) with the following columns:
-        </p>
-        <ul style={{ marginLeft: '1.5rem', color: 'var(--gray-600)' }}>
+      <div className="format-guide">
+        <h3>Expected File Format</h3>
+        <p>Files should be pipe-delimited (|) with the following columns:</p>
+        <ul>
           <li><strong>Recording Title</strong> - The recorded song title</li>
           <li><strong>Recording Artist</strong> - The performing artist</li>
           <li><strong>Work Title</strong> - The composition title</li>
           <li><strong>Songwriter</strong> - The composer/lyricist</li>
         </ul>
-        <div style={{ marginTop: '1rem', padding: '1rem', background: 'var(--gray-50)', borderRadius: '0.5rem', fontFamily: 'monospace', fontSize: '0.875rem' }}>
+        <div className="code-block">
           Recording Title|Recording Artist|Work Title|Songwriter<br />
           Yesterday|The Beatles|Yesterday|McCartney, Paul
         </div>

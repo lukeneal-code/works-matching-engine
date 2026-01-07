@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Music } from 'lucide-react';
 import Upload from './components/Upload';
 import BatchList from './components/BatchList';
 import BatchDetails from './components/BatchDetails';
@@ -10,8 +11,10 @@ function Header() {
   return (
     <header className="header">
       <div className="container">
-        <h1>Works Matching Engine</h1>
-        <p>AI-powered music usage matching</p>
+        <h1>
+          <Music size={24} />
+          Works Matching Engine
+        </h1>
         <nav>
           <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
             Upload
@@ -30,7 +33,7 @@ function App() {
     <BrowserRouter>
       <div>
         <Header />
-        <main className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+        <main className="container" style={{ paddingTop: '32px', paddingBottom: '48px' }}>
           <Routes>
             <Route path="/" element={<Upload />} />
             <Route path="/batches" element={<BatchList />} />
